@@ -1,0 +1,865 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Z370N WiFi-i5 8600k-Radeon RX580-hackintosh EFI更新于2019.9.27     系统版本Mac OS 10.14.6 如果CPU不同，可能会出现核显不同导致的黑屏问题，可以在clover中设置不同的核显ID尝试解决 更新于2019.9.19     系统版本Mac OS 10.14.6 假如你的主板甚至配置和我相同，那么你可以尝试直接使用这个EFI文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="19年黑苹果装机   Z370N WiFi-i5 8600k-Radeon RX580  EFI引导文件分享">
+<meta property="og:url" content="http://example.com/geek/hackintoshefi.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Z370N WiFi-i5 8600k-Radeon RX580-hackintosh EFI更新于2019.9.27     系统版本Mac OS 10.14.6 如果CPU不同，可能会出现核显不同导致的黑屏问题，可以在clover中设置不同的核显ID尝试解决 更新于2019.9.19     系统版本Mac OS 10.14.6 假如你的主板甚至配置和我相同，那么你可以尝试直接使用这个EFI文">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tc.bohecat.com/image/202202161506818.jpeg">
+<meta property="og:image" content="https://tc.bohecat.com/image/202202161506855.jpeg">
+<meta property="og:image" content="https://tc.bohecat.com/image/202202161506961.jpeg">
+<meta property="og:image" content="https://tc.bohecat.com/image/202202161506340.jpeg">
+<meta property="og:image" content="https://tc.bohecat.com/image/202202161506435.jpeg">
+<meta property="og:image" content="https://tc.bohecat.com/image/202202161506539.jpeg">
+<meta property="article:published_time" content="2019-09-18T23:53:00.000Z">
+<meta property="article:modified_time" content="2022-03-04T09:46:54.883Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="hackintosh组装">
+<meta property="article:tag" content="19年黑苹果装机">
+<meta property="article:tag" content="EFI引导文件">
+<meta property="article:tag" content="Z370N WiFi-i5">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tc.bohecat.com/image/202202161506818.jpeg">
+  
+  
+  <title>19年黑苹果装机   Z370N WiFi-i5 8600k-Radeon RX580  EFI引导文件分享 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="19年黑苹果装机   Z370N WiFi-i5 8600k-Radeon RX580  EFI引导文件分享"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-09-19 07:53" pubdate>
+          2019年9月19日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          17 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">19年黑苹果装机   Z370N WiFi-i5 8600k-Radeon RX580  EFI引导文件分享</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="Z370N-WiFi-i5-8600k-Radeon-RX580-hackintosh-EFI"><a href="#Z370N-WiFi-i5-8600k-Radeon-RX580-hackintosh-EFI" class="headerlink" title="Z370N WiFi-i5 8600k-Radeon RX580-hackintosh EFI"></a>Z370N WiFi-i5 8600k-Radeon RX580-hackintosh EFI</h1><p>更新于2019.9.27     系统版本Mac OS 10.14.6</p>
+<p>如果CPU不同，可能会出现核显不同导致的黑屏问题，可以在clover中设置不同的核显ID尝试解决</p>
+<p>更新于2019.9.19     系统版本Mac OS 10.14.6</p>
+<p>假如你的主板甚至配置和我相同，那么你可以尝试直接使用这个EFI文件进行安装。（同主板都可以尝试）</p>
+<blockquote>
+<p>其实这是我找人定制的EFI文件，因为睡眠问题在我的hackintosh一直得不到解决：只能黑屏假睡眠，主机电源是亮的，并且不能唤醒。</p>
+</blockquote>
+<p>目前声卡、有线网卡、无线网卡、蓝牙、显卡驱动正常，睡眠正常，通过集显实现视频硬解，<strong>iMessage和facetime无法使用，请勿登录</strong>（除非刷入白苹果序列号洗白或者运气好hackintosh的序列号本身就能用）。</p>
+<p><img src="https://tc.bohecat.com/image/202202161506818.jpeg" srcset="/img/loading.gif" lazyload alt="QQ20190919-134229"></p>
+<p><img src="https://tc.bohecat.com/image/202202161506855.jpeg" srcset="/img/loading.gif" lazyload alt="QQ20190919-134350"></p>
+<p><img src="https://tc.bohecat.com/image/202202161506961.jpeg" srcset="/img/loading.gif" lazyload alt="QQ20190919-134409"></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">└── z370n-wifi-hackintosh<br>    ├── EFI       ---- MacOS引导文件<br>    ├── nvram.plist ---- 功能文件<br>    ├── README.md   ---- README.md<br></code></pre></td></tr></table></figure>
+
+<p>只需要在安装Mac OS之后将EFI文件夹和nvram.plist文件放入系统EFI分区根目录即可。<strong>请务必备份并删除原来的EFI引导文件。</strong></p>
+<h2 id="关于配置"><a href="#关于配置" class="headerlink" title="关于配置"></a>关于配置</h2><p>这是我自配的主机配置：</p>
+<table>
+<thead>
+<tr>
+<th>硬件</th>
+<th>型号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主板</td>
+<td>技嘉 z370n-wifi</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>i5-8600K</td>
+</tr>
+<tr>
+<td>CPU散热</td>
+<td>利民银箭130</td>
+</tr>
+<tr>
+<td>显卡</td>
+<td>RX580蓝宝石超白金（满血版）</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>海盗船 8Gx2</td>
+</tr>
+<tr>
+<td>SSD</td>
+<td>Samsung 860 EVO 512（Mac OS）+intel 760P 256（Win10）</td>
+</tr>
+<tr>
+<td>电源</td>
+<td>EVEA 金牌全模组 600W</td>
+</tr>
+<tr>
+<td>机箱</td>
+<td>傻瓜超人K77</td>
+</tr>
+<tr>
+<td>蓝牙wifi网卡</td>
+<td>BCM94360CD</td>
+</tr>
+</tbody></table>
+<p>硬件选择上技嘉主板对Hackintosh的支持是比较好的最推荐，这也是我购买这块主板的原因。由于短期不需要上9代u，所以买的z370的板子，甚至现在刷新了bios其实也是支持9代u的。</p>
+<p>i5-8600K是1k2捡垃圾的，不算太亏。</p>
+<p><strong>显卡如果也想选择580的话一定要看清楚不要买2048p版本，目前京东都是这个版本！！</strong>标准2304SP才是免驱卡。由于macOS Mojave 10.14.x 系统Hackintosh已经不支持目前中高端的NVIDIA显卡了。所以，显卡最好用A卡，比如：RX480、RX560、RX 570、RX580、Vega56、Vega64。其中<strong>Vega 56、Vega 64</strong> 无需搭配集显也可完全硬件加速。</p>
+<p><strong>特别注意：</strong>三星 <strong>970 EVO Plus</strong> 和 三星 <strong>PM981</strong> 无法做为macOS系统盘安装原版，会导致死机，即使作为从盘，也会导致macOS死机。</p>
+<p>最后，<strong>请不要使用XMP</strong></p>
+<h2 id="设置BIOS"><a href="#设置BIOS" class="headerlink" title="设置BIOS"></a>设置BIOS</h2><p>BIOS设置是很有必要的，可以有效避免很多问题。</p>
+<p>我的BIOS版本：<code>F13</code> 注意：F13的BIOS是最新的，主要3200频率内存条不兼容的问题！刚好我需要。<strong>稳定的F10其实最好。</strong></p>
+<blockquote>
+<ol>
+<li>Save &amp; Exit → Load Optimized Defaults  恢复默认</li>
+<li>BIOS &gt; CSM Support &gt; Disabled（必需禁用）</li>
+<li>Chipset → Vt-d : Disabled（一般禁用）</li>
+<li>Сhipset ▸ Internal Graphics &#x3D; <strong>Enabled</strong>（启用）   如果使用vega 64，可以禁用集显</li>
+<li>Сhipset ▸ DVMT Pre-Allocated &#x3D; <strong>128MB</strong></li>
+<li>Сhipset ▸ DVMT Total Gfx Mem &#x3D; <strong>256MB</strong></li>
+</ol>
+</blockquote>
+<p>实际上，即使使用默认的BIOS设置，Hackintosh也可以启动。但是还是设置这些可以更放心。</p>
+<p>开机按 <code>Del</code>进入BIOS界面，其实技嘉BIOS是可以设置中文的，摸索一下，设置BIOS难度很小。</p>
+<h2 id="安装Mac-OS"><a href="#安装Mac-OS" class="headerlink" title="安装Mac OS"></a>安装Mac OS</h2><p>Mac OS 10.14.6镜像以及安装教程请移步**<a target="_blank" rel="noopener" href="https://blog.daliansky.net/macOS-Mojave-10.14.6-18G87-Release-version-with-Clover-5033-original-image.html">黑果小兵的blog</a>**</p>
+<h2 id="使用硬件解码"><a href="#使用硬件解码" class="headerlink" title="使用硬件解码"></a>使用硬件解码</h2><p>一般带有集显的CPU支持使用集显硬解，如果使用vega64或者想用独显硬解，则需要在BIOS禁用集显，并且在<strong>Clover Configurator</strong>中<strong>将机型变换为iMac Pro1.1</strong></p>
+<p><img src="https://tc.bohecat.com/image/202202161506340.jpeg" srcset="/img/loading.gif" lazyload alt="QQ20190919-134637"></p>
+<p><img src="https://tc.bohecat.com/image/202202161506435.jpeg" srcset="/img/loading.gif" lazyload alt="QQ20190919-150724"></p>
+<h2 id="蓝牙-x2F-WIFI网卡"><a href="#蓝牙-x2F-WIFI网卡" class="headerlink" title="蓝牙&#x2F;WIFI网卡"></a>蓝牙&#x2F;WIFI网卡</h2><p>默认的主板上的蓝牙&#x2F;WIFI网卡不能用于Hackintosh。你需要更换为兼容的网卡，有非常多的网卡能够兼容黑苹果，我使用的是BCM94360CD四天线的网卡，甚至我准备了天线贴在主机后。其实可以使用mac笔记本网卡，可以让主板的wifi模块发挥作用，而不是像我一样。</p>
+<h2 id="Z370N-WIFI主板USB端口位置"><a href="#Z370N-WIFI主板USB端口位置" class="headerlink" title="Z370N-WIFI主板USB端口位置"></a>Z370N-WIFI主板USB端口位置</h2><p><img src="https://tc.bohecat.com/image/202202161506539.jpeg" srcset="/img/loading.gif" lazyload alt="QQ20190919-144504"></p>
+<h2 id="系统更新"><a href="#系统更新" class="headerlink" title="系统更新"></a>系统更新</h2><p>Mac OS 10.14.6 小版本的系统更新可以直接按照正常白苹果，使用软件更新进行，如升级10.15.x那就是另一段折腾的过程了，愿君成功。</p>
+<h2 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h2><p>EFI出于交流分享，如果又任何使用上的文件更新将在github上传。理论上EFI不会损坏任何硬件或者软件，如有任何损失，本人不承担任何责任。下载安装即同意本声明。</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/geek/" class="category-chain-item">geek</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/hackintosh%E7%BB%84%E8%A3%85/">#hackintosh组装</a>
+      
+        <a href="/tags/19%E5%B9%B4%E9%BB%91%E8%8B%B9%E6%9E%9C%E8%A3%85%E6%9C%BA/">#19年黑苹果装机</a>
+      
+        <a href="/tags/EFI%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6/">#EFI引导文件</a>
+      
+        <a href="/tags/Z370N-WiFi-i5/">#Z370N WiFi-i5</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>19年黑苹果装机   Z370N WiFi-i5 8600k-Radeon RX580  EFI引导文件分享</div>
+      <div>http://example.com/geek/hackintoshefi.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年9月19日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2022年3月4日</div>
+        </div>
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/shejiaodianshang.html" title="风口上的社交电商">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">风口上的社交电商</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/jeetairplus.html" title="JEET AIR PLUS蓝牙耳机体验记录">
+                        <span class="hidden-mobile">JEET AIR PLUS蓝牙耳机体验记录</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/1.5.2/Waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline-repository.vercel.app/","path":"window.location.pathname","placeholder":null,"meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","avatar":"retro","avatarCDN":"https://seccdn.libravatar.org/avatar/","avatarForce":false,"wordLimit":0,"pageSize":10,"highlight":true},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        new Waline(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP证123456号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>京公网安备12345678号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
